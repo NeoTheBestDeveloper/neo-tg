@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  api:
+    env_file:
+      - api/env/.env.dev
+    build: 
+      dockerfile: docker/Dockerfile.dev
+      context: ./api
+    volumes:
+      - ./api:/app
+    ports:
+      - 80:8000
