@@ -1,14 +1,12 @@
-from pathlib import Path
-
 from .env import StrEnv, BoolEnv
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from .database import *
 
 
 SECRET_KEY: str = StrEnv("DJANGO_SECRET_KEY")
 DEBUG: bool = BoolEnv("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 INSTALLED_APPS = [
@@ -52,14 +50,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

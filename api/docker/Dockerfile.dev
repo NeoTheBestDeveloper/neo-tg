@@ -25,7 +25,8 @@ COPY pyproject.toml poetry.lock /app/
 
 # Install dependencies:
 RUN poetry install --without=dev
+
 # copy project
 COPY . .
 
-CMD ["python",  "manage.py",  "runserver", "0.0.0.0:8000"]
+CMD ["./entrypoint.sh"]

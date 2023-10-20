@@ -5,6 +5,7 @@ __all__ = [
     "EnvUndefined",
     "StrEnv",
     "BoolEnv",
+    "IntEnv",
 ]
 
 
@@ -31,3 +32,12 @@ class BoolEnv:
         if env is None:
             raise EnvUndefined(env_name)
         return env.lower() in ("true", "1")
+
+
+class IntEnv(int):
+    def __new__(cls, env_name: str):
+        env = getenv(env_name, None)
+        if env is None:
+            raise EnvUndefined(env_name)
+        obj = super().__new__(cls, int(env))
+        return obj
