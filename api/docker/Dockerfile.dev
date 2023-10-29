@@ -29,4 +29,4 @@ RUN poetry install --without=dev
 # copy project
 COPY . .
 
-CMD ["./entrypoint.sh"]
+CMD ["./docker/entrypoint.sh"]

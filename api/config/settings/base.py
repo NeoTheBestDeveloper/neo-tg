@@ -1,6 +1,7 @@
 from .env import StrEnv, BoolEnv
 
 from .database import *
+from .logging import *
 
 
 SECRET_KEY: str = StrEnv("DJANGO_SECRET_KEY")
